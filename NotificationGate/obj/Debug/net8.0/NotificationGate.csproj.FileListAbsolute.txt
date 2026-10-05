@@ -1,0 +1,15 @@
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\bin\Debug\net8.0\NotificationGate.exe
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\bin\Debug\net8.0\NotificationGate.deps.json
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\bin\Debug\net8.0\NotificationGate.runtimeconfig.json
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\bin\Debug\net8.0\NotificationGate.dll
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\bin\Debug\net8.0\NotificationGate.pdb
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.AssemblyInfoInputs.cache
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.AssemblyInfo.cs
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.csproj.CoreCompileInputs.cache
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.sourcelink.json
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.dll
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\refint\NotificationGate.dll
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.pdb
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\NotificationGate.genruntimeconfig.cache
+C:\Users\Yonil\source\repos\KolAman\NotificationGate\obj\Debug\net8.0\ref\NotificationGate.dll
