@@ -10,7 +10,7 @@ import logging
 from datetime import datetime, timezone
 import sys
 from elasticsearch import Elasticsearch
-
+import pika
 
 class Elastic8Handler(logging.Handler):
     def __init__(self, client, index_name):
@@ -55,12 +55,50 @@ def main():
         'bootstrap.servers': 'localhost:9092',
         'group.id': 'foo',
         'auto.offset.reset': 'earliest'}
-
-
     consumer = None
 
     redis_server = redis.Redis(host='localhost', port=6379, decode_responses=True)
-    print(redis_server)
+
+
+    credentials = pika.PlainCredentials('root', 'root')
+    parameters = pika.ConnectionParameters(
+        host='localhost',
+        credentials=credentials
+    )
+    connection = pika.BlockingConnection(parameters)
+    channel = connection.channel()
+    channel.exchange_declare(
+        exchange='direct_alerts',
+        exchange_type='direct')
+    channel.queue_declare(queue='north',
+                          durable=True,
+                          auto_delete=False,
+                          exclusive=False)
+    channel.queue_declare(queue='center',
+                          durable=True,
+                          auto_delete=False,
+                          exclusive=False)
+    channel.queue_declare(queue='south',
+                          durable=True,
+                          auto_delete=False,
+                          exclusive=False)
+    channel.queue_declare(queue='overseas',
+                          durable=True,
+                          auto_delete=False,
+                          exclusive=False)
+
+    channel.queue_bind(exchange="direct_alerts",
+                       queue='north',
+                       routing_key='NORTH')
+    channel.queue_bind(exchange="direct_alerts",
+                       queue='center',
+                       routing_key='CENTER')
+    channel.queue_bind(exchange="direct_alerts",
+                       queue='south',
+                       routing_key='SOUTH')
+    channel.queue_bind(exchange="direct_alerts",
+                       queue='overseas',
+                       routing_key='OVERSEAS')
     try:
         consumer = Consumer(conf)
         consumer.subscribe(["alerts-topic"])
@@ -73,7 +111,7 @@ def main():
 
                 logger.error(f"ERROR: {msg.error()}")
             else:
-                alert_process(msg.value(), redis_server)
+                alert_process(msg.value(), redis_server, channel)
     except Exception as ex:
         print(ex)
         logger.error(f"Error while consuming message {ex}")
@@ -81,20 +119,29 @@ def main():
         consumer.close()
 
 
-def alert_process(msg, redis_server):
+def alert_process(msg, redis_server, channel):
     try:
         json_msg = json.loads(msg)
-        print(json_msg)
         is_in_redis = redis_server.get(json_msg["alert_id"])
-        print(is_in_redis)
-        if is_in_redis is None or (is_in_redis["source"] != "pikud-haoref" and redis_server.tll(json_msg["alert_id"]) <= 3600):
-            redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=86000)
-        if is_in_redis["source"] == "pikud-haoref" and redis_server.tll(json_msg["alert_id"]) <= 30000:
-            redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=36000)
+        if is_in_redis is None:
+            if json_msg["alert_id"]!= "pikud-haoref":
+                redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=86000)
+            else:
+                redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=36000)
+        else:
+            if is_in_redis["source"] != "pikud-haoref" and redis_server.tll(json_msg["alert_id"]) <= 3600:
+                redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=86000)
+            if is_in_redis["source"] == "pikud-haoref" and redis_server.tll(json_msg["alert_id"]) <= 30000:
+                redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=36000)
 
         if validate_alert(json_msg):
             classification = classify_msg(json_msg)
-            #print(json_msg, classification)
+            print("classification:", classification)
+            channel.basic_publish(exchange='direct_alerts',
+                                  routing_key=classification,
+                                  body=json.dumps(json_msg))
+            print(json.dumps(json_msg), classification)
+            logger.info(f"Sent {json_msg['alert_id']} to Rabbit Exchange with classification: {classification}.")
 
     except Exception as ex:
         print(ex)
