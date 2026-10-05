@@ -54,6 +54,7 @@ class AlertReader : BackgroundService
 
             string[] message = Directory.GetFiles(directoryPath);
             var alert = File.ReadAllText(message[0]);
+            //Console.WriteLine(alert);
             var alertJson = JsonSerializer.Deserialize<AlertModel>(alert)!;
 
             _logger.LogInformation($"Read alert: {alertJson.AlertId}, sending to kafka.");

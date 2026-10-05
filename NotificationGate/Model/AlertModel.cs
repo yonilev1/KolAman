@@ -28,10 +28,10 @@ public class AlertModel
     public string Classification { get; set; } = string.Empty;
 
     [JsonPropertyName("lat")]
-    public string Lat { get; set; } = string.Empty;
+    public double Lat { get; set; }
 
     [JsonPropertyName("lon")]
-    public string Lon { get; set; } = string.Empty;
+    public double Lon { get; set; }
 
     [JsonPropertyName("timestamp")]
     public string Timestamp { get; set; } = string.Empty;

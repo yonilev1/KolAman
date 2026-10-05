@@ -18,7 +18,7 @@ public class KafkaProducer : IKafkaProducer
     private readonly string _topic;
     private readonly IProducer<Null, string> _producer;
 
-    public KafkaProducer(ILogger<KafkaProducer> logger, IProducer<Null, string>producer, IConfiguration configuration)
+    public KafkaProducer(ILogger<KafkaProducer> logger, IConfiguration configuration)
     {
         _logger = logger;
         _topic = configuration["Kafka:Topic"] ?? "alerts-topic";
