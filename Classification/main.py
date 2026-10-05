@@ -5,6 +5,7 @@ import dotenv
 from confluent_kafka import Consumer
 import redis
 import geopandas as gpd
+from dotenv import load_dotenv
 from shapely.geometry import Point
 import logging
 from datetime import datetime, timezone
@@ -44,25 +45,18 @@ logging.basicConfig(level=logging.INFO,
                         logging.StreamHandler(sys.stdout)
                     ])
 
+load_dotenv()
 logger = logging.getLogger()
-es_client = Elasticsearch("http://localhost:9200")
+es_client = Elasticsearch(os.getenv("ELASTIC_URI","http://localhost:9200"))
 
 es_handler = Elastic8Handler(es_client, "python-consumer-logs")
 logger.addHandler(es_handler)
 
-def main():
-    conf = {
-        'bootstrap.servers': 'localhost:9092',
-        'group.id': 'foo',
-        'auto.offset.reset': 'earliest'}
-    consumer = None
 
-    redis_server = redis.Redis(host='localhost', port=6379, decode_responses=True)
-
-
-    credentials = pika.PlainCredentials('root', 'root')
+def get_rabbit_channel():
+    credentials = pika.PlainCredentials(os.getenv('RABBIT_CRED', 'root'), os.getenv('RABBIT_CRED', 'root'))
     parameters = pika.ConnectionParameters(
-        host='localhost',
+        host=os.getenv('RABBIT_URI', 'localhost'),
         credentials=credentials
     )
     connection = pika.BlockingConnection(parameters)
@@ -99,6 +93,21 @@ def main():
     channel.queue_bind(exchange="direct_alerts",
                        queue='overseas',
                        routing_key='OVERSEAS')
+
+    return channel
+
+def main():
+    conf = {
+        'bootstrap.servers': os.getenv('KAFKA_URI', 'localhost:9092'),
+        'group.id': 'foo',
+        'auto.offset.reset': 'earliest'}
+    consumer = None
+
+    redis_server = redis.Redis(host=os.getenv('REDIS_URI', 'localhost'),
+                               port=os.getenv('REDIS_PORT', 6379), decode_responses=True)
+
+    channel = get_rabbit_channel()
+
     try:
         consumer = Consumer(conf)
         consumer.subscribe(["alerts-topic"])
