@@ -4,7 +4,8 @@ using NotificationGate.KafkaProducer;
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
-
+using NotificationGate.Model;
+using System.Text.Json;
 namespace NotificationGate.ReadAlerts;
 
 class AlertReader : BackgroundService
@@ -53,9 +54,11 @@ class AlertReader : BackgroundService
 
             string[] message = Directory.GetFiles(directoryPath);
             var alert = File.ReadAllText(message[0]);
-            _logger.LogInformation($"Read alert: {message}, sending to kafka.");
-            //TO Do - produce
+            var alertJson = JsonSerializer.Deserialize<AlertModel>(alert)!;
 
+            _logger.LogInformation($"Read alert: {alertJson.AlertId}, sending to kafka.");
+
+            _producer.Produce(alertJson);
             File.Delete(message[0]);
             Directory.Delete(directoryPath);
         }
