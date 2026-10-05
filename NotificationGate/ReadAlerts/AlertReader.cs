@@ -3,23 +3,25 @@ using Microsoft.Extensions.Logging;
 using NotificationGate.KafkaProducer;
 using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace NotificationGate.ReadAlerts;
 
 class AlertReader : BackgroundService
 {
     private readonly ILogger<AlertReader> _logger;
-    private readonly IProducer _producer;
+    private readonly IKafkaProducer _producer;
 
-    public AlertReader(ILogger<AlertReader> logger, IProducer producer)
+    public AlertReader(ILogger<AlertReader> logger, IKafkaProducer producer)
     {
         _logger = logger;
         _producer = producer;
     }
 
-    static void Main()
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var watcher = new FileSystemWatcher(@"C:\Users\Yonil\source\repos\KolAman\alert-simulator\alert-simulator\alerts");
+        var currentDirectory = Directory.GetCurrentDirectory();
+        using var watcher = new FileSystemWatcher($@"{currentDirectory}\alert-simulator");
         watcher.InternalBufferSize = 65536;
 
 
@@ -32,11 +34,7 @@ class AlertReader : BackgroundService
                              | NotifyFilters.Security
                              | NotifyFilters.Size;
 
-        //watcher.Changed += OnChanged;
         watcher.Created += OnCreated;
-        //watcher.Deleted += OnDeleted;
-        //watcher.Renamed += OnRenamed;
-        //watcher.Error += OnError;
 
         watcher.Filter = "*.ready";
         watcher.IncludeSubdirectories = true;
@@ -46,47 +44,25 @@ class AlertReader : BackgroundService
         Console.ReadLine();
     }
 
-    //private static void OnChanged(object sender, FileSystemEventArgs e)
-    //{
-    //    if (e.ChangeType != WatcherChangeTypes.Changed)
-    //    {
-    //        return;
-    //    }
-    //    Console.WriteLine($"Changed: {e.FullPath}");
-    //}
-
-    private static void OnCreated(object sender, FileSystemEventArgs e)
+    private void OnCreated(object sender, FileSystemEventArgs e)
     {
-        string value = $"Created: {e.FullPath.Replace("alert.ready", "")}";
-        string[] message = Directory.GetFiles(e.FullPath.Replace("alert.ready", ""));
-        var alert = File.ReadAllText(message[0]);
-        Console.WriteLine(alert);
-        Console.WriteLine(message[0]);
-        Console.WriteLine(value);
-    }
-
-    //private static void OnDeleted(object sender, FileSystemEventArgs e) =>
-    //    Console.WriteLine($"Deleted: {e.FullPath}");
-
-    //private static void OnRenamed(object sender, RenamedEventArgs e)
-    //{
-    //    Console.WriteLine($"Renamed:");
-    //    Console.WriteLine($"    Old: {e.OldFullPath}");
-    //    Console.WriteLine($"    New: {e.FullPath}");
-    //}
-
-    //private static void OnError(object sender, ErrorEventArgs e) =>
-    //    PrintException(e.GetException());
-
-    private static void PrintException(Exception? ex)
-    {
-        if (ex != null)
+        try
         {
-            Console.WriteLine($"Message: {ex.Message}");
-            Console.WriteLine("Stacktrace:");
-            Console.WriteLine(ex.StackTrace);
-            Console.WriteLine();
-            PrintException(ex.InnerException);
+            var directoryPath = e.FullPath.Replace("alert.ready", "");
+            File.Delete(e.FullPath);
+
+            string[] message = Directory.GetFiles(directoryPath);
+            var alert = File.ReadAllText(message[0]);
+            _logger.LogInformation($"Read alert: {message}, sending to kafka.");
+            //TO Do - produce
+
+            File.Delete(message[0]);
+            Directory.Delete(directoryPath);
         }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Message: {ex.Message}");
+        }
+        
     }
 }

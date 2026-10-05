@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NotificationGate.KafkaProducer;
 
-public class Producer : IProducer
+public interface IKafkaProducer
 {
 
+    Task<bool> Produce(string alert);
 }

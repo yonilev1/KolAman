@@ -7,9 +7,9 @@ namespace MyNamespace
     {
         static void Main()
         {
-            using var watcher = new FileSystemWatcher(@"C:\Users\Yonil\source\repos\KolAman\alert-simulator\alert-simulator\alerts");
+            var currentDirectory = Directory.GetCurrentDirectory();
+            using var watcher = new FileSystemWatcher($@"{currentDirectory}\alert-simulator\alert-simulator");
             watcher.InternalBufferSize = 65536;
-
 
             watcher.NotifyFilter = NotifyFilters.Attributes
                                  | NotifyFilters.CreationTime
@@ -20,11 +20,11 @@ namespace MyNamespace
                                  | NotifyFilters.Security
                                  | NotifyFilters.Size;
 
-            //watcher.Changed += OnChanged;
+            watcher.Changed += OnChanged;
             watcher.Created += OnCreated;
-            //watcher.Deleted += OnDeleted;
-            //watcher.Renamed += OnRenamed;
-            //watcher.Error += OnError;
+            watcher.Deleted += OnDeleted;
+            watcher.Renamed += OnRenamed;
+            watcher.Error += OnError;
 
             watcher.Filter = "*.ready";
             watcher.IncludeSubdirectories = true;
@@ -34,37 +34,42 @@ namespace MyNamespace
             Console.ReadLine();
         }
 
-        //private static void OnChanged(object sender, FileSystemEventArgs e)
-        //{
-        //    if (e.ChangeType != WatcherChangeTypes.Changed)
-        //    {
-        //        return;
-        //    }
-        //    Console.WriteLine($"Changed: {e.FullPath}");
-        //}
+        private static void OnChanged(object sender, FileSystemEventArgs e)
+        {
+            if (e.ChangeType != WatcherChangeTypes.Changed)
+            {
+                return;
+            }
+            Console.WriteLine($"Changed: {e.FullPath}");
+        }
 
         private static void OnCreated(object sender, FileSystemEventArgs e)
         {
-            string value = $"Created: {e.FullPath.Replace("alert.ready", "")}";
-            string[] message = Directory.GetFiles(e.FullPath.Replace("alert.ready", ""));
+            //string value = $"Created: {e.FullPath.Replace("alert.ready", "")}";
+            var directoryPath = e.FullPath.Replace("alert.ready", "");
+            Console.WriteLine(directoryPath);
+            File.Delete(e.FullPath);
+            string[] message = Directory.GetFiles(directoryPath);
             var alert = File.ReadAllText(message[0]);
+            File.Delete(message[0]);
+            Directory.Delete(directoryPath);
             Console.WriteLine(alert);
             Console.WriteLine(message[0]);
-            Console.WriteLine(value);
+            //Console.WriteLine(value);
         }
 
-        //private static void OnDeleted(object sender, FileSystemEventArgs e) =>
-        //    Console.WriteLine($"Deleted: {e.FullPath}");
+        private static void OnDeleted(object sender, FileSystemEventArgs e) =>
+            Console.WriteLine($"Deleted: {e.FullPath}");
 
-        //private static void OnRenamed(object sender, RenamedEventArgs e)
-        //{
-        //    Console.WriteLine($"Renamed:");
-        //    Console.WriteLine($"    Old: {e.OldFullPath}");
-        //    Console.WriteLine($"    New: {e.FullPath}");
-        //}
+        private static void OnRenamed(object sender, RenamedEventArgs e)
+        {
+            Console.WriteLine($"Renamed:");
+            Console.WriteLine($"    Old: {e.OldFullPath}");
+            Console.WriteLine($"    New: {e.FullPath}");
+        }
 
-        //private static void OnError(object sender, ErrorEventArgs e) =>
-        //    PrintException(e.GetException());
+        private static void OnError(object sender, ErrorEventArgs e) =>
+            PrintException(e.GetException());
 
         private static void PrintException(Exception? ex)
         {
