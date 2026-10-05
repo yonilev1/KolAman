@@ -45,7 +45,7 @@ logging.basicConfig(level=logging.INFO,
                     ])
 
 logger = logging.getLogger()
-es_client = Elasticsearch("http://elastic:9200")
+es_client = Elasticsearch("http://localhost:9200")
 
 es_handler = Elastic8Handler(es_client, "python-consumer-logs")
 logger.addHandler(es_handler)
@@ -59,8 +59,8 @@ def main():
 
     consumer = None
 
-    redis_server = redis.Redis(host='localhost', port=6379)
-
+    redis_server = redis.Redis(host='localhost', port=6379, decode_responses=True)
+    print(redis_server)
     try:
         consumer = Consumer(conf)
         consumer.subscribe(["alerts-topic"])
@@ -69,7 +69,8 @@ def main():
             msg = consumer.poll(1.0)
             if msg is None:
                 continue
-            if msg.error():
+            elif msg.error():
+
                 logger.error(f"ERROR: {msg.error()}")
             else:
                 alert_process(msg.value(), redis_server)
@@ -81,61 +82,67 @@ def main():
 
 
 def alert_process(msg, redis_server):
-    json_msg = json.loads(msg)
-    is_in_redis = redis_server.get(json_msg["alert_id"])
-    if (is_in_redis is None
-            or (is_in_redis["source"] != "pikud-haoref" and is_in_redis.get("ex", 0) <= 18000)):
-        redis_server.set(json_msg["alert_id"], ex=36000)
-    if is_in_redis["source"] == "pikud-haoref" and is_in_redis.get("ex", 0) <= 30000:
-        redis_server.set(json_msg["alert_id"], ex=36000)
-    """Log"""
+    try:
+        json_msg = json.loads(msg)
+        print(json_msg)
+        is_in_redis = redis_server.get(json_msg["alert_id"])
+        print(is_in_redis)
+        if is_in_redis is None or (is_in_redis["source"] != "pikud-haoref" and redis_server.tll(json_msg["alert_id"]) <= 3600):
+            redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=86000)
+        if is_in_redis["source"] == "pikud-haoref" and redis_server.tll(json_msg["alert_id"]) <= 30000:
+            redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=36000)
 
-    if validate_alert(json_msg):
-        classification = classify_msg(json_msg)
-        print(json_msg, classification)
+        if validate_alert(json_msg):
+            classification = classify_msg(json_msg)
+            #print(json_msg, classification)
+
+    except Exception as ex:
+        print(ex)
+        logger.error(f"Error while processing message {ex}")
+
 
 
 def validate_alert(json_msg):
     if json_msg["source"] in [None, ""] or json_msg["priority"] in [None, ""] or json_msg["classification"] in [None, ""] or json_msg["lat"] in [None, ""] or json_msg["lon"] in [None, ""] or json_msg["timestamp"] in [None, ""] or json_msg["status"] in [None, ""]:
+        logger.error(f"alert cant have empty feilds")
         return  False
 
     if json_msg["source"] not in ['aman', 'mossad', 'pikud-haoref', 'shabak']:
-        """Log"""
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
         return False
-    if json_msg['source'] == 'aman' and json_msg['source'] not in ["זוהה כלי טיס בלתי מאויש עוין" ,'זוהו הכנות לשיגור','זוהה שיגור טיל בליסטי','שיבושי ניווט באזור','תנועת כוחות חריגה סמוך לגבול','זוהה שיגור רקטות']:
-        """log"""
+    if json_msg['source'] == 'aman' and json_msg['title'] not in ["זוהה כלי טיס בלתי מאויש עוין" ,'זוהו הכנות לשיגור','זוהה שיגור טיל בליסטי','שיבושי ניווט באזור','תנועת כוחות חריגה סמוך לגבול','זוהה שיגור רקטות']:
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
         return False
-    if json_msg['source'] == 'mossad' and json_msg['source'] not in ["התרעה על כוונה לפגוע ביעד ישראלי בחוץ לארץ", 'זוהה נתיב הברחת אמצעי לחימה',
+    if json_msg['source'] == 'mossad' and json_msg['title'] not in ["התרעה על כוונה לפגוע ביעד ישראלי בחוץ לארץ", 'זוהה נתיב הברחת אמצעי לחימה',
                                                                    'פעילות חריגה באתר אסטרטגי', 'ניסיון כניסה של פעיל עוין לישראל',
                                                                    'העברת כספים לארגון טרור',
                                                                    'תנועת פעיל עוין בין מדינות']:
-        """log"""
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
         return False
-    if json_msg['source'] == 'pikud-haoref' and json_msg['source'] not in ["ירי רקטות וטילים" ,'חדירת כלי טיס עוין','חדירת מחבלים','התרעה מקדימה','רעידת אדמה','האירוע הסתיים']:
-        """log"""
+    if json_msg['source'] == 'pikud-haoref' and json_msg['title'] not in ["ירי רקטות וטילים" ,'חדירת כלי טיס עוין','חדירת מחבלים','התרעה מקדימה','רעידת אדמה','האירוע הסתיים']:
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
         return False
-    if json_msg['source'] == 'shabak' and json_msg['source'] not in ["התרעה חמה לפיגוע" ,'תנועת מחבל מבוקש','חשד לחדירה ליישוב','רכב חשוד','חשד לפעילות ריגול עבור גורם עוין','גניבת אמצעי לחימה']:
-        """log"""
+    if json_msg['source'] == 'shabak' and json_msg['title'] not in ["התרעה חמה לפיגוע" ,'תנועת מחבל מבוקש','חשד לחדירה ליישוב','רכב חשוד','חשד לפעילות ריגול עבור גורם עוין','גניבת אמצעי לחימה']:
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
         return False
 
     if json_msg['priority'] not in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']:
-        """log"""
+        logger.error(f"alert {json_msg["alert_id"]} has un valid priority")
         return False
 
     if json_msg['classification'] not in ['UNCLASSIFIED', 'RESTRICTED', 'SECRET', 'TOP_SECRET']:
-        """log"""
+        logger.error(f"alert {json_msg["alert_id"]} has un valid classification")
         return False
 
     if json_msg['lat'] < -90 or json_msg['lat'] > 90:
-        """log"""
+        logger.error(f"alert {json_msg["alert_id"]} has out of range lat")
         return False
     if json_msg['lon'] < -180 or json_msg['lon'] > 180:
-        """log"""
+        logger.error(f"alert {json_msg["alert_id"]} has out of range lon")
         return False
     if json_msg['status'] != 'WAITING':
-        """log"""
-        return False
-
+         logger.error(f"alert {json_msg["alert_id"]} has out un valid status")
+         return False
     return True
 
 
