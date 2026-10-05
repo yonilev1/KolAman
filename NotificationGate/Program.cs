@@ -1,17 +1,19 @@
 ﻿using Elastic.Clients.Elasticsearch;
+using Elastic.Clients.Elasticsearch.Nodes;
+using Elasticsearch;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NotificationGate.KafkaProducer;
 using NotificationGate.ReadAlerts;
+using NotificationGate.Model;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
-using Elasticsearch;
 
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.Elasticsearch(new Serilog.Sinks.Elasticsearch.ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
+    .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
     {
         AutoRegisterTemplate = true,
-        IndexFormat = "C#-procude-logs-index"
+        IndexFormat = "Csharp-procude-logs-index"
     })
     .WriteTo.File("../logs/logs.log",
     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} - {Level:u3} - {Message:lj}{NewLine}{Exception}")
@@ -25,21 +27,10 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         var configuration = context.Configuration;
 
-        var config = context.Configuration;
-        var ElasticCon = config["Elastic:ConnectionString"]!;
-        //var RabbitCon = config["Rabbit:ConnectionString"]!;
-        //var SqlCon = config["ConnectionString:DefaultConnect"]!;
-        //var bootstrap = config["Kafka:BootstrapServer"]!;
-
-        services.AddSingleton<IElasticsearchClientSettings>
-        (new ElasticsearchClientSettings(new Uri(ElasticCon)).DisableDirectStreaming());
-
-        services.AddSingleton<ElasticsearchClient>();
-
         services.AddSingleton<IKafkaProducer, KafkaProducer>();
 
         services.AddHostedService<AlertReader>();
 
     }).Build();
 
-await host.RunAsync();
+ await host.RunAsync();
