@@ -24,11 +24,13 @@ class Elastic8Handler(logging.Handler):
             return
         try:
             log_entry = self.format(record)
+            print("command:", getattr(record, 'command', None))
             doc = {
                 'timestamp': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%fZ'),
                 'level': record.levelname,
                 'message': log_entry,
-                'logger': record.name
+                'logger': record.name,
+                'command': getattr(record, 'command', None)
             }
             self.client.index(index=self.index_name, document=doc)
         except Exception as e:
@@ -64,37 +66,8 @@ def get_rabbit_channel():
     channel.exchange_declare(
         exchange='direct_alerts',
         exchange_type='direct')
-    channel.queue_declare(queue='north',
-                          durable=True,
-                          auto_delete=False,
-                          exclusive=False)
-    channel.queue_declare(queue='center',
-                          durable=True,
-                          auto_delete=False,
-                          exclusive=False)
-    channel.queue_declare(queue='south',
-                          durable=True,
-                          auto_delete=False,
-                          exclusive=False)
-    channel.queue_declare(queue='overseas',
-                          durable=True,
-                          auto_delete=False,
-                          exclusive=False)
-
-    channel.queue_bind(exchange="direct_alerts",
-                       queue='north',
-                       routing_key='NORTH')
-    channel.queue_bind(exchange="direct_alerts",
-                       queue='center',
-                       routing_key='CENTER')
-    channel.queue_bind(exchange="direct_alerts",
-                       queue='south',
-                       routing_key='SOUTH')
-    channel.queue_bind(exchange="direct_alerts",
-                       queue='overseas',
-                       routing_key='OVERSEAS')
-
     return channel
+
 
 def main():
     conf = {
@@ -118,12 +91,12 @@ def main():
                 continue
             elif msg.error():
 
-                logger.error(f"ERROR: {msg.error()}")
+                logger.error(f"ERROR: {msg.error()}", extra={'send_do-es':True, 'es_name':'python-error-index'})
             else:
                 alert_process(msg.value(), redis_server, channel)
     except Exception as ex:
         print(ex)
-        logger.error(f"Error while consuming message {ex}")
+        logger.error(f"Error while consuming message {ex}", extra={'send_do-es':True, 'es_name':'python-error-index'})
     finally:
         consumer.close()
 
@@ -142,6 +115,9 @@ def alert_process(msg, redis_server, channel):
                 redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=86000)
             if is_in_redis["source"] == "pikud-haoref" and redis_server.tll(json_msg["alert_id"]) <= 30000:
                 redis_server.set(json_msg["alert_id"], json.dumps(json_msg), ex=36000)
+            else:
+                return
+
 
         if validate_alert(json_msg):
             classification = classify_msg(json_msg)
@@ -150,54 +126,55 @@ def alert_process(msg, redis_server, channel):
                                   routing_key=classification,
                                   body=json.dumps(json_msg))
             print(json.dumps(json_msg), classification)
-            logger.info(f"Sent {json_msg['alert_id']} to Rabbit Exchange with classification: {classification}.")
+            logger.info(f"Sent {json_msg['alert_id']} to Rabbit Exchange with classification: {classification}.",
+                        extra={'send_do-es':True, 'es_name':'python-send_to_rabbit-index'})
 
     except Exception as ex:
         print(ex)
-        logger.error(f"Error while processing message {ex}")
+        logger.error(f"Error while processing message {ex}", extra={'send_do-es':True, 'es_name':'python-error-index'})
 
 
 
 def validate_alert(json_msg):
     if json_msg["source"] in [None, ""] or json_msg["priority"] in [None, ""] or json_msg["classification"] in [None, ""] or json_msg["lat"] in [None, ""] or json_msg["lon"] in [None, ""] or json_msg["timestamp"] in [None, ""] or json_msg["status"] in [None, ""]:
-        logger.error(f"alert cant have empty feilds")
+        logger.error(f"alert cant have empty feilds", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return  False
 
     if json_msg["source"] not in ['aman', 'mossad', 'pikud-haoref', 'shabak']:
-        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
     if json_msg['source'] == 'aman' and json_msg['title'] not in ["זוהה כלי טיס בלתי מאויש עוין" ,'זוהו הכנות לשיגור','זוהה שיגור טיל בליסטי','שיבושי ניווט באזור','תנועת כוחות חריגה סמוך לגבול','זוהה שיגור רקטות']:
-        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
     if json_msg['source'] == 'mossad' and json_msg['title'] not in ["התרעה על כוונה לפגוע ביעד ישראלי בחוץ לארץ", 'זוהה נתיב הברחת אמצעי לחימה',
                                                                    'פעילות חריגה באתר אסטרטגי', 'ניסיון כניסה של פעיל עוין לישראל',
                                                                    'העברת כספים לארגון טרור',
                                                                    'תנועת פעיל עוין בין מדינות']:
-        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
     if json_msg['source'] == 'pikud-haoref' and json_msg['title'] not in ["ירי רקטות וטילים" ,'חדירת כלי טיס עוין','חדירת מחבלים','התרעה מקדימה','רעידת אדמה','האירוע הסתיים']:
-        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
     if json_msg['source'] == 'shabak' and json_msg['title'] not in ["התרעה חמה לפיגוע" ,'תנועת מחבל מבוקש','חשד לחדירה ליישוב','רכב חשוד','חשד לפעילות ריגול עבור גורם עוין','גניבת אמצעי לחימה']:
-        logger.error(f"alert {json_msg["alert_id"]} has un valid source")
+        logger.error(f"alert {json_msg["alert_id"]} has un valid source", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
 
     if json_msg['priority'] not in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']:
-        logger.error(f"alert {json_msg["alert_id"]} has un valid priority")
+        logger.error(f"alert {json_msg["alert_id"]} has un valid priority", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
 
     if json_msg['classification'] not in ['UNCLASSIFIED', 'RESTRICTED', 'SECRET', 'TOP_SECRET']:
-        logger.error(f"alert {json_msg["alert_id"]} has un valid classification")
+        logger.error(f"alert {json_msg["alert_id"]} has un valid classification", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
 
     if json_msg['lat'] < -90 or json_msg['lat'] > 90:
-        logger.error(f"alert {json_msg["alert_id"]} has out of range lat")
+        logger.error(f"alert {json_msg["alert_id"]} has out of range lat", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
     if json_msg['lon'] < -180 or json_msg['lon'] > 180:
-        logger.error(f"alert {json_msg["alert_id"]} has out of range lon")
+        logger.error(f"alert {json_msg["alert_id"]} has out of range lon", extra={'send_do-es':True, 'es_name':'python-error-index'})
         return False
     if json_msg['status'] != 'WAITING':
-         logger.error(f"alert {json_msg["alert_id"]} has out un valid status")
+         logger.error(f"alert {json_msg["alert_id"]} has out un valid status", extra={'send_do-es':True, 'es_name':'python-error-index'})
          return False
     return True
 
