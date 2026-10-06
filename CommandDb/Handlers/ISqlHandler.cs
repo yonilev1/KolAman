@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandDb.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,4 +9,5 @@ namespace CommandDb.Handlers;
 
 public interface ISqlHandler
 {
+    Task<bool> Execute(AlertModel alert, string Command);
 }
