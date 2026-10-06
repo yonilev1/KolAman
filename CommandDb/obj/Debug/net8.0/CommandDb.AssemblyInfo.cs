@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CommandDb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e927947710aa62891a1f3dfd26753f3f12fff9d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53f09d33f9f46a6fb135ca7e8b1a180e6601c00b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CommandDb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CommandDb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,703 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Yonil\\source\\repos\\KolAman\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\service\\sqlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\service\\sqlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\service\\isqlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\service\\isqlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\hotestcommad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\hotestcommad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\countalertspercommandbypriority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\countalertspercommandbypriority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\handlers\\sqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\handlers\\sqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\controllers\\alertscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\controllers\\alertscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\countalertspercommandbystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\countalertspercommandbystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\countalertsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\countalertsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\data\\commanddbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\data\\commanddbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\alertmodelsouth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\alertmodelsouth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\alertmodeloverseas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\alertmodeloverseas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\alertmodelnorth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\alertmodelnorth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\alertmodelcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\alertmodelcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\model\\alertmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\model\\alertmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\alertsapi\\alertsapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{77AA79CE-5645-E3CF-5CC8-BED0DB8802E6}|AlertsApi\\AlertsApi.csproj|solutionrelative:alertsapi\\alertsapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\rabbitconsumer\\rabbitconsumerasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\rabbitconsumer\\rabbitconsumerasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\handlers\\sqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\handlers\\sqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\taskmanagerservice\\managetasksasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\taskmanagerservice\\managetasksasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\model\\alertmodelsouth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\model\\alertmodelsouth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\model\\alertmodeloverseas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\model\\alertmodeloverseas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\model\\alertmodelnorth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\model\\alertmodelnorth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\model\\alertmodelcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\model\\alertmodelcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\model\\alertmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\model\\alertmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\model\\alertmodelcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\model\\alertmodelcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\model\\alertmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\model\\alertmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\model\\alertmodelsouth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\model\\alertmodelsouth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\model\\alertmodeloverseas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\model\\alertmodeloverseas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\model\\alertmodelnorth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\model\\alertmodelnorth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\data\\taskmanegerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\data\\taskmanegerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\handlers\\isqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\handlers\\isqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\taskmanager.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\taskmanager.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\taskmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FBC5C6EB-A249-AFF4-6779-A3EB98273C24}|TaskManager\\TaskManager.csproj|solutionrelative:taskmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\commanddb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\commanddb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\handlers\\isqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\handlers\\isqlhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\commanddb\\data\\commanddbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C2E492-3CEC-53E0-4A47-A32A93A3C7E2}|CommandDb\\CommandDb.csproj|solutionrelative:commanddb\\data\\commanddbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96B0E8D-AAE4-6A2F-2EC6-C5E942E428C1}|NotificationGate\\NotificationGate.csproj|c:\\users\\yonil\\source\\repos\\kolaman\\notificationgate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96B0E8D-AAE4-6A2F-2EC6-C5E942E428C1}|NotificationGate\\NotificationGate.csproj|solutionrelative:notificationgate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HotestCommad.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\HotestCommad.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\HotestCommad.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\HotestCommad.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\HotestCommad.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T15:24:56.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ISqlService.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Service\\ISqlService.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Service\\ISqlService.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Service\\ISqlService.cs",
+              "RelativeToolTip": "AlertsApi\\Service\\ISqlService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:46:33.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AlertsController.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Controllers\\AlertsController.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Controllers\\AlertsController.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Controllers\\AlertsController.cs",
+              "RelativeToolTip": "AlertsApi\\Controllers\\AlertsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:47:22.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SqlHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Handlers\\SqlHandler.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Handlers\\SqlHandler.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Handlers\\SqlHandler.cs",
+              "RelativeToolTip": "TaskManager\\Handlers\\SqlHandler.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAACgAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:40:25.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Program.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Program.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Program.cs",
+              "RelativeToolTip": "TaskManager\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T11:54:42.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CountAlertsPerCommandBypriority.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\CountAlertsPerCommandBypriority.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\CountAlertsPerCommandBypriority.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\CountAlertsPerCommandBypriority.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\CountAlertsPerCommandBypriority.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwA8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T14:26:22.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SqlService.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Service\\SqlService.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Service\\SqlService.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Service\\SqlService.cs",
+              "RelativeToolTip": "AlertsApi\\Service\\SqlService.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAkwHUAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:46:45.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CommandDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Data\\CommandDbContext.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Data\\CommandDbContext.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Data\\CommandDbContext.cs",
+              "RelativeToolTip": "AlertsApi\\Data\\CommandDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:48:06.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Program.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Program.cs",
+              "RelativeToolTip": "AlertsApi\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAkwBkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:45:49.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CountAlertsPerCommandByStatus.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\CountAlertsPerCommandByStatus.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\CountAlertsPerCommandByStatus.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\CountAlertsPerCommandByStatus.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\CountAlertsPerCommandByStatus.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T14:39:36.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\appsettings.json",
+              "RelativeDocumentMoniker": "AlertsApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\appsettings.json",
+              "RelativeToolTip": "AlertsApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-06T13:45:01.918Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "AlertsApi\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\appsettings.Development.json",
+              "RelativeToolTip": "AlertsApi\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-06T14:17:40.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CountAlertsDto.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\CountAlertsDto.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\CountAlertsDto.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\CountAlertsDto.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\CountAlertsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:57:35.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Program.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Program.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Program.cs",
+              "RelativeToolTip": "CommandDb\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T06:46:59.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AlertModelSouth.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelSouth.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\AlertModelSouth.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelSouth.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\AlertModelSouth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:48:36.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AlertModelOverseas.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelOverseas.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\AlertModelOverseas.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelOverseas.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\AlertModelOverseas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:48:32.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AlertModelNorth.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelNorth.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\AlertModelNorth.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelNorth.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\AlertModelNorth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:48:28.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AlertModelCenter.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelCenter.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\AlertModelCenter.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModelCenter.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\AlertModelCenter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:48:25.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AlertModel.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModel.cs",
+              "RelativeDocumentMoniker": "AlertsApi\\Model\\AlertModel.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\Model\\AlertModel.cs",
+              "RelativeToolTip": "AlertsApi\\Model\\AlertModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T13:48:21.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AlertsApi.csproj",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\AlertsApi.csproj",
+              "RelativeDocumentMoniker": "AlertsApi\\AlertsApi.csproj",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\AlertsApi\\AlertsApi.csproj",
+              "RelativeToolTip": "AlertsApi\\AlertsApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-06T13:44:41.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AlertModelNorth.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelNorth.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Model\\AlertModelNorth.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelNorth.cs",
+              "RelativeToolTip": "TaskManager\\Model\\AlertModelNorth.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:04:26.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AlertModelOverseas.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelOverseas.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Model\\AlertModelOverseas.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelOverseas.cs",
+              "RelativeToolTip": "TaskManager\\Model\\AlertModelOverseas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:04:29.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AlertModelSouth.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelSouth.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Model\\AlertModelSouth.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelSouth.cs",
+              "RelativeToolTip": "TaskManager\\Model\\AlertModelSouth.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowA8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:04:32.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ManageTasksAsync.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\TaskManagerService\\ManageTasksAsync.cs",
+              "RelativeDocumentMoniker": "TaskManager\\TaskManagerService\\ManageTasksAsync.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\TaskManagerService\\ManageTasksAsync.cs",
+              "RelativeToolTip": "TaskManager\\TaskManagerService\\ManageTasksAsync.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:02:36.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SqlHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Handlers\\SqlHandler.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Handlers\\SqlHandler.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Handlers\\SqlHandler.cs",
+              "RelativeToolTip": "CommandDb\\Handlers\\SqlHandler.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAcwGYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T06:48:14.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\appsettings.json",
+              "RelativeDocumentMoniker": "CommandDb\\appsettings.json",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\appsettings.json",
+              "RelativeToolTip": "CommandDb\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-06T07:55:36.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RabbitConsumerAsync.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\RabbitConsumer\\RabbitConsumerAsync.cs",
+              "RelativeDocumentMoniker": "CommandDb\\RabbitConsumer\\RabbitConsumerAsync.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\RabbitConsumer\\RabbitConsumerAsync.cs",
+              "RelativeToolTip": "CommandDb\\RabbitConsumer\\RabbitConsumerAsync.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAuwF8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T06:48:53.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AlertModelCenter.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelCenter.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Model\\AlertModelCenter.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModelCenter.cs",
+              "RelativeToolTip": "TaskManager\\Model\\AlertModelCenter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:04:22.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AlertModel.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModel.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Model\\AlertModel.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Model\\AlertModel.cs",
+              "RelativeToolTip": "TaskManager\\Model\\AlertModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:04:18.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AlertModelCenter.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelCenter.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Model\\AlertModelCenter.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelCenter.cs",
+              "RelativeToolTip": "CommandDb\\Model\\AlertModelCenter.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T08:29:49.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AlertModel.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModel.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Model\\AlertModel.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModel.cs",
+              "RelativeToolTip": "CommandDb\\Model\\AlertModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T08:31:24.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AlertModelSouth.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelSouth.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Model\\AlertModelSouth.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelSouth.cs",
+              "RelativeToolTip": "CommandDb\\Model\\AlertModelSouth.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA/wA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T08:29:26.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "AlertModelOverseas.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelOverseas.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Model\\AlertModelOverseas.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelOverseas.cs",
+              "RelativeToolTip": "CommandDb\\Model\\AlertModelOverseas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T08:30:13.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AlertModelNorth.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelNorth.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Model\\AlertModelNorth.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Model\\AlertModelNorth.cs",
+              "RelativeToolTip": "CommandDb\\Model\\AlertModelNorth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T06:50:33.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "TaskManegerDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Data\\TaskManegerDbContext.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Data\\TaskManegerDbContext.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Data\\TaskManegerDbContext.cs",
+              "RelativeToolTip": "TaskManager\\Data\\TaskManegerDbContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T11:58:55.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ISqlHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Handlers\\ISqlHandler.cs",
+              "RelativeDocumentMoniker": "TaskManager\\Handlers\\ISqlHandler.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\Handlers\\ISqlHandler.cs",
+              "RelativeToolTip": "TaskManager\\Handlers\\ISqlHandler.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T12:43:26.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "TaskManager.csproj",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\TaskManager.csproj",
+              "RelativeDocumentMoniker": "TaskManager\\TaskManager.csproj",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\TaskManager.csproj",
+              "RelativeToolTip": "TaskManager\\TaskManager.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-06T11:52:54.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\appsettings.json",
+              "RelativeDocumentMoniker": "TaskManager\\appsettings.json",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\TaskManager\\appsettings.json",
+              "RelativeToolTip": "TaskManager\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-06T12:03:17.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CommandDb.csproj",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\CommandDb.csproj",
+              "RelativeDocumentMoniker": "CommandDb\\CommandDb.csproj",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\CommandDb.csproj",
+              "RelativeToolTip": "CommandDb\\CommandDb.csproj",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-06T06:46:42.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ISqlHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Handlers\\ISqlHandler.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Handlers\\ISqlHandler.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Handlers\\ISqlHandler.cs",
+              "RelativeToolTip": "CommandDb\\Handlers\\ISqlHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T06:48:02.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "CommandDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Data\\CommandDbContext.cs",
+              "RelativeDocumentMoniker": "CommandDb\\Data\\CommandDbContext.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\CommandDb\\Data\\CommandDbContext.cs",
+              "RelativeToolTip": "CommandDb\\Data\\CommandDbContext.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAowBEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T06:47:24.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Yonil\\source\\repos\\KolAman\\NotificationGate\\Program.cs",
+              "RelativeDocumentMoniker": "NotificationGate\\Program.cs",
+              "ToolTip": "C:\\Users\\Yonil\\source\\repos\\KolAman\\NotificationGate\\Program.cs",
+              "RelativeToolTip": "NotificationGate\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAiwBgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-06T07:46:31.666Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
