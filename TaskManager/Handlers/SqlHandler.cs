@@ -26,6 +26,20 @@ public class SqlHandler : ISqlHandler
         var northMessage = await _context.NorthAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (northMessage != null)
         {
+            var title = northMessage.Title;
+            var time = DateTime.Parse(northMessage.Timestamp);
+            var titleSouth = _context.SouthAlerts.FirstOrDefault(t => t.Title == title);
+            var titleCenter = _context.CenterAlerts.FirstOrDefault(t => t.Title == title);
+            var titleOver = _context.OverseasAlerts.FirstOrDefault(t => t.Title == title);
+            if (titleSouth != null && titleCenter != null && titleOver != null)
+            {
+                var timeSouth = (int)(DateTime.Parse(northMessage.Timestamp) - DateTime.Parse(titleSouth.Timestamp)).TotalHours;
+                var timeCenter = (int)(DateTime.Parse(northMessage.Timestamp) - DateTime.Parse(titleCenter.Timestamp)).TotalHours;
+                var timeOver = (int)(DateTime.Parse(northMessage.Timestamp) - DateTime.Parse(titleOver.Timestamp)).TotalHours;
+
+                if (timeSouth > -5 && timeSouth < 5 && timeCenter > -5 && timeCenter < 5 && timeOver > -5 && timeOver < 5)
+                    _logger.LogCritical($"same Alerts to all comands! {title}");
+            }
             AlertModel northalert = new AlertModel
             {
                 AlertId = northMessage.AlertId,
@@ -63,6 +77,20 @@ public class SqlHandler : ISqlHandler
         var centerMessage = await _context.CenterAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (centerMessage != null)
         {
+            var title = centerMessage.Title;
+            var time = DateTime.Parse(centerMessage.Timestamp);
+            var titleSouth = _context.SouthAlerts.FirstOrDefault(t => t.Title == title);
+            var titleNorth = _context.NorthAlerts.FirstOrDefault(t => t.Title == title);
+            var titleOver = _context.OverseasAlerts.FirstOrDefault(t => t.Title == title);
+            if (titleSouth != null && titleNorth != null && titleOver != null)
+            {
+                var timeSouth = (int)(DateTime.Parse(centerMessage.Timestamp) - DateTime.Parse(titleSouth.Timestamp)).TotalHours;
+                var timeNorth = (int)(DateTime.Parse(centerMessage.Timestamp) - DateTime.Parse(titleNorth.Timestamp)).TotalHours;
+                var timeOver = (int)(DateTime.Parse(centerMessage.Timestamp) - DateTime.Parse(titleOver.Timestamp)).TotalHours;
+
+                if (timeSouth > -5 && timeSouth < 5 && timeNorth > -5 && timeNorth < 5 && timeOver > -5 && timeOver < 5)
+                    _logger.LogCritical($"same Alerts to all comands! {title}");
+            }
             AlertModel centeralert = new AlertModel
             {
                 AlertId = centerMessage.AlertId,
@@ -100,6 +128,20 @@ public class SqlHandler : ISqlHandler
         var southMessage = await _context.SouthAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (southMessage != null)
         {
+            var title = southMessage.Title;
+            var time = DateTime.Parse(southMessage.Timestamp);
+            var titleCenter = _context.CenterAlerts.FirstOrDefault(t => t.Title == title);
+            var titleNorth = _context.NorthAlerts.FirstOrDefault(t => t.Title == title);
+            var titleOver = _context.OverseasAlerts.FirstOrDefault(t => t.Title == title);
+            if (titleCenter != null && titleNorth != null && titleOver != null)
+            {
+                var timeCenter = (int)(DateTime.Parse(southMessage.Timestamp) - DateTime.Parse(titleCenter.Timestamp)).TotalHours;
+                var timeNorth = (int)(DateTime.Parse(southMessage.Timestamp) - DateTime.Parse(titleNorth.Timestamp)).TotalHours;
+                var timeOver = (int)(DateTime.Parse(southMessage.Timestamp) - DateTime.Parse(titleOver.Timestamp)).TotalHours;
+
+                if (timeCenter > -5 && timeCenter < 5 && timeNorth > -5 && timeNorth < 5 && timeOver > -5 && timeOver < 5)
+                    _logger.LogCritical($"same Alerts to all comands! {title}");
+            }
             AlertModel southalert = new AlertModel
             {
                 AlertId = southMessage.AlertId,
@@ -137,6 +179,20 @@ public class SqlHandler : ISqlHandler
         var overseasmessage = await _context.OverseasAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (overseasmessage != null)
         {
+            var title = overseasmessage.Title;
+            var time = DateTime.Parse(overseasmessage.Timestamp);
+            var titleCenter = _context.CenterAlerts.FirstOrDefault(t => t.Title == title);
+            var titleNorth = _context.NorthAlerts.FirstOrDefault(t => t.Title == title);
+            var titleSouth = _context.OverseasAlerts.FirstOrDefault(t => t.Title == title);
+            if (titleCenter != null && titleNorth != null && titleSouth != null)
+            {
+                var timeCenter = (int)(DateTime.Parse(overseasmessage.Timestamp) - DateTime.Parse(titleCenter.Timestamp)).TotalHours;
+                var timeNorth = (int)(DateTime.Parse(overseasmessage.Timestamp) - DateTime.Parse(titleNorth.Timestamp)).TotalHours;
+                var timeSouth = (int)(DateTime.Parse(overseasmessage.Timestamp) - DateTime.Parse(titleSouth.Timestamp)).TotalHours;
+
+                if (timeCenter > -5 && timeCenter < 5 && timeNorth > -5 && timeNorth < 5 && timeSouth > -5 && timeSouth < 5)
+                    _logger.LogCritical($"same Alerts to all comands! {title}");
+            }
             AlertModel overseasAlert = new AlertModel
             {
                 AlertId = overseasmessage.AlertId,
