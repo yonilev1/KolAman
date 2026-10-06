@@ -64,11 +64,9 @@ public class RabbitConsumerAsync : BackgroundService
 
             using (var scope = _scopeFactory.CreateScope())
             {
-                Console.WriteLine("created scope");
                 try
                 {
                     var sqlHandler = scope.ServiceProvider.GetRequiredService<ISqlHandler>();
-                    Console.WriteLine("created handler");
                     var response = await sqlHandler.Execute(jsonAlert, routingKey);
 
                     if (response == false)

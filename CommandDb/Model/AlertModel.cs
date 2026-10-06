@@ -10,8 +10,8 @@ namespace CommandDb.Model;
 
 public class AlertModel
 {
+
     [JsonPropertyName("alert_id")]
-    [Key]
     public string AlertId { get; set; } = string.Empty;
 
     [JsonPropertyName("source")]

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CommandDb.Model;
 
-public class AlertModelNorth
+public class AlertModelNorth 
 {
     [Key]
     public int Id { get; set; }
