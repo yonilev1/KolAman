@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AlertsApi/AlertsApi.csproj" />
+  <Project Path="CommandDb/CommandDb.csproj" />
+  <Project Path="NotificationGate/NotificationGate.csproj" />
+  <Project Path="TaskManager/TaskManager.csproj" />
+</Solution>

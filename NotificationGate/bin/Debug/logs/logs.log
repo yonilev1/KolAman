@@ -1,0 +1,14 @@
+2026-10-05 15:13:50 - ERR - Hosting failed to start
+System.ArgumentException: The directory name 'C:\Users\Yonil\source\repos\KolAman\NotificationGate\bin\Debug\net8.0\alert-simulator' does not exist. (Parameter 'path')
+   at System.IO.FileSystemWatcher.CheckPathValidity(String path)
+   at System.IO.FileSystemWatcher..ctor(String path)
+   at NotificationGate.ReadAlerts.AlertReader.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Yonil\source\repos\KolAman\NotificationGate\ReadAlerts\AlertReader.cs:line 25
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-06 11:14:55 - ERR - Hosting failed to start
+System.ArgumentException: The directory name 'C:\Users\Yonil\source\repos\KolAman\NotificationGate\bin\Debug\net8.0\alert-simulator' does not exist. (Parameter 'path')
+   at System.IO.FileSystemWatcher.CheckPathValidity(String path)
+   at System.IO.FileSystemWatcher..ctor(String path)
+   at NotificationGate.ReadAlerts.AlertReader.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Yonil\source\repos\KolAman\NotificationGate\ReadAlerts\AlertReader.cs:line 25
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
