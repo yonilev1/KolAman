@@ -60,4 +60,39 @@ public class SqlService : ISqlService
         };
     }
 
+    public async Task<CountAlertsPerCommandByStatus> CountAlertsPerCommandByStatus()
+    {
+        return new CountAlertsPerCommandByStatus
+        {
+            North = new Status
+            {
+                Waiting = _context.NorthAlerts.Count(c => c.Status == "WAITING"),
+                Canceled = _context.NorthAlerts.Count(c => c.Status == "CANCELED"),
+                InPrograss = _context.NorthAlerts.Count(c => c.Status == "INPROGRESS"),
+                Done = _context.NorthAlerts.Count(c => c.Status == "DONE")
+            },
+            South = new Status
+            {
+                Waiting = _context.SouthAlerts.Count(c => c.Status == "WAITING"),
+                Canceled = _context.SouthAlerts.Count(c => c.Status == "CANCELED"),
+                InPrograss = _context.SouthAlerts.Count(c => c.Status == "INPROGRESS"),
+                Done = _context.SouthAlerts.Count(c => c.Status == "DONE")
+            },
+            Center = new Status
+            {
+                Waiting = _context.CenterAlerts.Count(c => c.Status == "WAITING"),
+                Canceled = _context.CenterAlerts.Count(c => c.Status == "CANCELED"),
+                InPrograss = _context.CenterAlerts.Count(c => c.Status == "INPROGRESS"),
+                Done = _context.CenterAlerts.Count(c => c.Status == "DONE")
+            },
+            Overseas = new Status
+            {
+                Waiting = _context.OverseasAlerts.Count(c => c.Status == "WAITING"),
+                Canceled = _context.OverseasAlerts.Count(c => c.Status == "CANCELED"),
+                InPrograss = _context.OverseasAlerts.Count(c => c.Status == "INPROGRESS"),
+                Done = _context.OverseasAlerts.Count(c => c.Status == "DONE")
+            }
+        };
+    }
+
 }

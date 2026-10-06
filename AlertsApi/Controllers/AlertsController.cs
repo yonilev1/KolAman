@@ -28,4 +28,10 @@ public class AlertsController : ControllerBase
     {
         return Ok(await _service.CountAlertsPerCommandBypriority());
     }
+
+    [HttpGet("count_per_command_per_status")]
+    public async Task<ActionResult<CountAlertsPerCommandByStatus>> CountAlertsPerCommandByStatus()
+    {
+        return Ok(await _service.CountAlertsPerCommandByStatus());
+    }
 }
