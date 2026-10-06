@@ -26,7 +26,6 @@ public class SqlHandler : ISqlHandler
         var northMessage = await _context.NorthAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (northMessage != null)
         {
-            Console.WriteLine($"alert {northMessage.AlertId}");
             AlertModel northalert = new AlertModel
             {
                 AlertId = northMessage.AlertId,
@@ -64,7 +63,6 @@ public class SqlHandler : ISqlHandler
         var centerMessage = await _context.CenterAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (centerMessage != null)
         {
-            Console.WriteLine($"alert {centerMessage.AlertId}");
             AlertModel centeralert = new AlertModel
             {
                 AlertId = centerMessage.AlertId,
@@ -78,6 +76,7 @@ public class SqlHandler : ISqlHandler
                 Timestamp = centerMessage.Timestamp,
                 Title = centerMessage.Title
             };
+            DateTime start = DateTime.Now;
             AlertModel workerAlert = await ProcessMessage(centeralert, "Center");
             AlertModelCenter workerAlertCenter = new AlertModelCenter
             {
@@ -93,13 +92,14 @@ public class SqlHandler : ISqlHandler
                 Title = workerAlert.Title
             };
             _context.CenterAlerts.Update(workerAlertCenter);
+            DateTime End = DateTime.Now;
+            _logger.LogTrace($"{workerAlertCenter.AlertId}: {End - start}");
             await _context.SaveChangesAsync();
         }
 
         var southMessage = await _context.SouthAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (southMessage != null)
         {
-            Console.WriteLine($"alert {southMessage.AlertId}");
             AlertModel southalert = new AlertModel
             {
                 AlertId = southMessage.AlertId,
@@ -113,6 +113,7 @@ public class SqlHandler : ISqlHandler
                 Timestamp = southMessage.Timestamp,
                 Title = southMessage.Title
             };
+            DateTime start = DateTime.Now;
             AlertModel workerAlert = await ProcessMessage(southalert, "South");
             AlertModelSouth workerAlertSouth = new AlertModelSouth
             {
@@ -128,13 +129,14 @@ public class SqlHandler : ISqlHandler
                 Title = workerAlert.Title
             };
             _context.SouthAlerts.Update(workerAlertSouth);
+            DateTime End = DateTime.Now;
+            _logger.LogTrace($"{workerAlertSouth.AlertId}: {End - start}");
             await _context.SaveChangesAsync();
         }
 
         var overseasmessage = await _context.OverseasAlerts.FirstOrDefaultAsync(s => s.Status == "WAITING");
         if (overseasmessage != null)
         {
-            Console.WriteLine($"alert {overseasmessage.AlertId}");
             AlertModel overseasAlert = new AlertModel
             {
                 AlertId = overseasmessage.AlertId,
@@ -148,6 +150,7 @@ public class SqlHandler : ISqlHandler
                 Timestamp = overseasmessage.Timestamp,
                 Title = overseasmessage.Title
             };
+            DateTime start = DateTime.Now;
             AlertModel workerAlert = await ProcessMessage(overseasAlert, "Overseas");
             AlertModelOverseas workerAlertOverseas = new AlertModelOverseas
             {
@@ -163,6 +166,8 @@ public class SqlHandler : ISqlHandler
                 Title = workerAlert.Title
             };
             _context.OverseasAlerts.Update(workerAlertOverseas);
+            DateTime End = DateTime.Now;
+            _logger.LogTrace($"{workerAlertOverseas.AlertId}: {End - start}");
             await _context.SaveChangesAsync();
         }
     }
