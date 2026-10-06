@@ -5,4 +5,5 @@ namespace AlertsApi.Service;
 public interface ISqlService
 {
     Task<CountAlertsDto> CountAlertsPerCommand();
+    Task<CountAlertsPerCommandBypriority> CountAlertsPerCommandBypriority();
 }
