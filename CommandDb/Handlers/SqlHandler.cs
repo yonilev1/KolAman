@@ -11,40 +11,95 @@ namespace CommandDb.Handlers;
 
 public class SqlHandler : ISqlHandler
 {
-    private readonly Logger<SqlHandler> _logger;
+    private readonly ILogger<SqlHandler> _logger;
     private readonly CommandDbContext _context;
 
-    public SqlHandler(Logger<SqlHandler> logger, CommandDbContext context)
+    public SqlHandler(ILogger<SqlHandler> logger, CommandDbContext context)
     {
         _logger = logger;
         _context = context;
     }
 
-    public async Task<bool> Execute(AlertModel alert, string Command)
+    public async Task<bool?> Execute(AlertModel alert, string Command)
     {
         if(ValidateAlert(alert))
         {
-            if (Command == "North")
+            
+            if (Command == "NORTH")
             {
-                await _context.NorthAlerts.AddAsync(alert);
+                AlertModelNorth north = new AlertModelNorth
+                {
+                    AlertId = alert.AlertId,
+                    Classification = alert.Classification,
+                    Content = alert.Content,
+                    Lat = alert.Lat,
+                    Lon = alert.Lon,
+                    Priority = alert.Priority,
+                    Source = alert.Source,
+                    Status = alert.Status,
+                    Timestamp = alert.Timestamp,
+                    Title = alert.Title
+                };
+                await _context.NorthAlerts.AddAsync(north);
             }
-            if (Command == "Center")
+            if (Command == "CENTER")
             {
-                await _context.CenterAlerts.AddAsync(alert);
+                AlertModelCenter center = new AlertModelCenter
+                {
+                    AlertId = alert.AlertId,
+                    Classification = alert.Classification,
+                    Content = alert.Content,
+                    Lat = alert.Lat,
+                    Lon = alert.Lon,
+                    Priority = alert.Priority,
+                    Source = alert.Source,
+                    Status = alert.Status,
+                    Timestamp = alert.Timestamp,
+                    Title = alert.Title
+                };
+                await _context.CenterAlerts.AddAsync(center);
             }
-            if (Command == "South")
+            if (Command == "SOUTH")
             {
-                await _context.SouthAlerts.AddAsync(alert);
+                AlertModelSouth south = new AlertModelSouth
+                {
+                    AlertId = alert.AlertId,
+                    Classification = alert.Classification,
+                    Content = alert.Content,
+                    Lat = alert.Lat,
+                    Lon = alert.Lon,
+                    Priority = alert.Priority,
+                    Source = alert.Source,
+                    Status = alert.Status,
+                    Timestamp = alert.Timestamp,
+                    Title = alert.Title
+                };
+                await _context.SouthAlerts.AddAsync(south);
             }
-            if (Command == "OverSeas")
+            if (Command == "OVERSEAS")
             {
-                await _context.OverseasAlerts.AddAsync(alert);
+                AlertModelOverseas overseas = new AlertModelOverseas
+                {
+                    AlertId = alert.AlertId,
+                    Classification = alert.Classification,
+                    Content = alert.Content,
+                    Lat = alert.Lat,
+                    Lon = alert.Lon,
+                    Priority = alert.Priority,
+                    Source = alert.Source,
+                    Status = alert.Status,
+                    Timestamp = alert.Timestamp,
+                    Title = alert.Title
+                };
+                await _context.OverseasAlerts.AddAsync(overseas);
             }
             var added = await _context.SaveChangesAsync();
+            Console.WriteLine($"added is {added}");
             if (added > 0)
                 return true;
+            return false;
         }
-        return false;
+        return null;
     }
 
     public bool ValidateAlert(AlertModel alert)

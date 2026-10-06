@@ -1,4 +1,6 @@
-﻿using CommandDb.Model;
+﻿using CommandDb.Data;
+using CommandDb.Model;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,6 @@ namespace CommandDb.Handlers;
 
 public interface ISqlHandler
 {
-    Task<bool> Execute(AlertModel alert, string Command);
+    Task<bool?> Execute(AlertModel alert, string Command);
     bool ValidateAlert(AlertModel alert);
 }

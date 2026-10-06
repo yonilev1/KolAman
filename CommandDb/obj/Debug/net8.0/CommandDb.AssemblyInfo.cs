@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CommandDb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdfa6ed943b4398707663f3ddcebac58bb080e9d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd044bf3a2e8e652df0cd595515cebc6e094dcb3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CommandDb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CommandDb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

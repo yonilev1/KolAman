@@ -13,14 +13,13 @@ public class CommandDbContext :DbContext
         :base(options)
     { }
 
-    public DbSet<AlertModel> NorthAlerts { get; set; }
-    public DbSet<AlertModel> CenterAlerts { get; set; }
-    public DbSet<AlertModel> SouthAlerts { get; set; }
-    public DbSet<AlertModel> OverseasAlerts { get; set; }
+    public DbSet<AlertModelNorth> NorthAlerts { get; set; }
+    public DbSet<AlertModelCenter> CenterAlerts { get; set; }
+    public DbSet<AlertModelSouth> SouthAlerts { get; set; }
+    public DbSet<AlertModelOverseas> OverseasAlerts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<AlertModel>()
-            .HasKey(a => a.AlertId);
+        base.OnModelCreating(modelBuilder);
     }
 }

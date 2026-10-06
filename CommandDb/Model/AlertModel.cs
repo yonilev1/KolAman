@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace NotificationGate.Model;
+namespace CommandDb.Model;
 
 public class AlertModel
 {
     [JsonPropertyName("alert_id")]
+    [Key]
     public string AlertId { get; set; } = string.Empty;
 
     [JsonPropertyName("source")]
