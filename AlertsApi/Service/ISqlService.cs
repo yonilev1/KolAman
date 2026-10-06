@@ -8,4 +8,5 @@ public interface ISqlService
     Task<CountAlertsPerCommandBypriority> CountAlertsPerCommandBypriority();
     Task<CountAlertsPerCommandByStatus> CountAlertsPerCommandByStatus();
     Task<HotestCommand> GetHotestCommand();
+    Task<CountAlertsDto> CountAlertsPerCommandPerTitle(string title);
 }

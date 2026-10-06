@@ -40,4 +40,10 @@ public class AlertsController : ControllerBase
     {
         return Ok(await _service.GetHotestCommand());
     }
+
+    [HttpGet("count_by_title_per_command/{title}")]
+    public async Task<ActionResult<CountAlertsDto>> CountAlertsPerCommandPerTitle(string title)
+    {
+        return Ok(await _service.CountAlertsPerCommandPerTitle(title));
+    }
 }

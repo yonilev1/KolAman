@@ -185,5 +185,16 @@ public class SqlService : ISqlService
             Amount = overAmount
         };
     }
+
+    public async Task<CountAlertsDto> CountAlertsPerCommandPerTitle(string title)
+    {
+        return new CountAlertsDto
+        {
+            North = _context.NorthAlerts.Count(c => c.Title == title),
+            South = _context.SouthAlerts.Count(c => c.Title == title),
+            Center = _context.CenterAlerts.Count(c => c.Title == title),
+            Overseas = _context.OverseasAlerts.Count(c => c.Title == title)
+        };
+    }
 }
 
