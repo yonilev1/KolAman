@@ -11,7 +11,12 @@ a python consumer that read from the kafka topic, validates, get command and sen
     the validations:
         chack for each feild that it is not missing, and that the feilds that have a certien value are realy one of the alawed values.
     then check reddis:
-        if does not exist or: for pikud horef a few is there for a few ahors alraedy then add the new on, and for oth senders after a day that it is there (diferent TLL's)
+        if does not exist or: for pikud horef a is is there for a few ahors alraedy then add the new on, and for other senders after a day that it is there (diferent TLL's)
+        I dicided that cuz PH have missile attacks end etc which can happen more often so it can posebly be real dupliate.
+        garbage duplicates are ignored totaly
+    Validations:
+        chack that each field exsits, and that it is out of the alwod fields (if there is a list of alowd fields)
+        we dons ant to let alertss that are curropt with missing values in.
     then calculate command center:
         function that we got that get point and calculates command center.
     then:
@@ -35,10 +40,21 @@ Part 4:
 reads from mysql and checks if we have and other commands that got the same message in a period of 5 hors,
 if yes send critical log, then in kibana show dashboard of critical logs 
 aftr that we send the alertt to be processed, each kind gets a different process time to simulate a real processing.
+Tree of decisions:
+    if we have a alert from mossad, HIGH/CRITICAL but UNCLASSIFIED/RESTRICTED - 5
+    if we have a alert from mossad, HIGH/CRITICAL and SECRET?TOPSECRET = 11 (over seas takes time)
+    if HIGH/CRITICAL and  UNCLASSIFIED/RESTRICTED - 4
+    if HIGH/CRITICAL and  SECRET/TOP_SECRET - 7 
+    every other message - 2
+    
+    baisicly the hard or far missins and alert take more time then the others. 
 
 Part 5:
 API that can get data and summerys out of the mysql db
 (I know the last endpont is writtin like crap but my wife is waiting...  :))
+OWN ENDPOINT:
+    for each Title, how many of him each commat got
+    for analyzing the stats of every commands abbilaties.
 
 The code runs:
 part 1 -> part 3 -> part 2 -> part 4 and part 5
