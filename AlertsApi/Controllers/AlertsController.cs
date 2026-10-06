@@ -8,7 +8,7 @@ namespace AlertsApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AlertsController : ControllerBase
+public class AlertsController :  ControllerBase
 {
     private readonly ISqlService _service;
 
