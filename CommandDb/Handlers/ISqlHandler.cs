@@ -10,4 +10,5 @@ namespace CommandDb.Handlers;
 public interface ISqlHandler
 {
     Task<bool> Execute(AlertModel alert, string Command);
+    bool ValidateAlert(AlertModel alert);
 }

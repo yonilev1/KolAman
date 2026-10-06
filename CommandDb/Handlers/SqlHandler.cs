@@ -22,25 +22,132 @@ public class SqlHandler : ISqlHandler
 
     public async Task<bool> Execute(AlertModel alert, string Command)
     {
-        if(Command == "North")
+        if(ValidateAlert(alert))
         {
-            await _context.NorthAlerts.AddAsync(alert);
+            if (Command == "North")
+            {
+                await _context.NorthAlerts.AddAsync(alert);
+            }
+            if (Command == "Center")
+            {
+                await _context.CenterAlerts.AddAsync(alert);
+            }
+            if (Command == "South")
+            {
+                await _context.SouthAlerts.AddAsync(alert);
+            }
+            if (Command == "OverSeas")
+            {
+                await _context.OverseasAlerts.AddAsync(alert);
+            }
+            var added = await _context.SaveChangesAsync();
+            if (added > 0)
+                return true;
         }
-        if (Command == "Center")
-        {
-            await _context.CenterAlerts.AddAsync(alert);
-        }
-        if (Command == "South")
-        {
-            await _context.SouthAlerts.AddAsync(alert);
-        }
-        if (Command == "OverSeas")
-        {
-            await _context.OverseasAlerts.AddAsync(alert);
-        }
-        var added = await _context.SaveChangesAsync();
-        if (added > 0)
-            return true;
         return false;
     }
+
+    public bool ValidateAlert(AlertModel alert)
+    {
+        if (string.IsNullOrEmpty(alert.AlertId) ||
+            string.IsNullOrEmpty(alert.Classification) ||
+            string.IsNullOrEmpty(alert.Content) ||
+            string.IsNullOrEmpty(alert.Priority) ||
+            string.IsNullOrEmpty(alert.Source) ||
+            string.IsNullOrEmpty(alert.Status) ||
+            string.IsNullOrEmpty(alert.Timestamp) ||
+            string.IsNullOrEmpty(alert.Title))
+        {
+            _logger.LogError($"alert is missing some fields.");
+            return false;
+        }
+
+        if (alert.Source == "aman" &&
+        alert.Title != "זוהה כלי טיס בלתי מאויש עוין" &&
+        alert.Title != "זוהו הכנות לשיגור" &&
+        alert.Title != "זוהה שיגור טיל בליסטי" &&
+        alert.Title != "שיבושי ניווט באזור" &&
+        alert.Title != "תנועת כוחות חריגה סמוך לגבול" &&
+        alert.Title != "זוהה שיגור רקטות")
+        {
+            _logger.LogError($"alert {alert.AlertId} has invalid source");
+            return false;
+        }
+
+        if (alert.Source == "mossad" &&
+            alert.Title != "התרעה על כוונה לפגוע ביעד ישראלי בחוץ לארץ" &&
+            alert.Title != "זוהה נתיב הברחת אמצעי לחימה" &&
+            alert.Title != "פעילות חריגה באתר אסטרטגי" &&
+            alert.Title != "ניסיון כניסה של פעיל עוין לישראל" &&
+            alert.Title != "העברת כספים לארגון טרור" &&
+            alert.Title != "תנועת פעיל עוין בין מדינות")
+        {
+            _logger.LogError($"alert {alert.AlertId} has invalid source");
+            return false;
+        }
+
+        if (alert.Source == "pikud-haoref" &&
+            alert.Title != "ירי רקטות וטילים" &&
+            alert.Title != "חדירת כלי טיס עוין" &&
+            alert.Title != "חדירת מחבלים" &&
+            alert.Title != "התרעה מקדימה" &&
+            alert.Title != "רעידת אדמה" &&
+            alert.Title != "האירוע הסתיים")
+        {
+            _logger.LogError($"alert {alert.AlertId} has invalid source");
+            return false;
+        }
+
+        if (alert.Source == "shabak" &&
+            alert.Title != "התרעה חמה לפיגוע" &&
+            alert.Title != "תנועת מחבל מבוקש" &&
+            alert.Title != "חשד לחדירה ליישוב" &&
+            alert.Title != "רכב חשוד" &&
+            alert.Title != "חשד לפעילות ריגול עבור גורם עוין" &&
+            alert.Title != "גניבת אמצעי לחימה")
+        {
+            _logger.LogError($"alert {alert.AlertId} has invalid source");
+            return false;
+        }
+
+        if (alert.Priority != "CRITICAL" &&
+            alert.Priority != "HIGH" &&
+            alert.Priority != "MEDIUM" &&
+            alert.Priority != "LOW")
+        {
+            _logger.LogError($"alert {alert.AlertId} has invalid priority");
+            return false;
+        }
+
+        if (alert.Classification != "UNCLASSIFIED" &&
+            alert.Classification != "RESTRICTED" &&
+            alert.Classification != "SECRET" &&
+            alert.Classification != "TOP_SECRET")
+        {
+            _logger.LogError($"alert {alert.AlertId} has invalid classification");
+            return false;
+        }
+
+        if (alert.Lat < -90 || alert.Lat > 90)
+        {
+            _logger.LogError($"alert {alert.AlertId} has out of range lat");
+            return false;
+        }
+
+        if (alert.Lon < -180 || alert.Lon > 180)
+        {
+            _logger.LogError($"alert {alert.AlertId} has out of range lon");
+            return false;
+        }
+
+        if (alert.Status != "WAITING")
+        {
+            _logger.LogError($"alert {alert.AlertId} has invalid status");
+            return false;
+        }
+
+        return true;
+    }
+
+
 }
