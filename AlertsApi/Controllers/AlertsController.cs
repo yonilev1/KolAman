@@ -34,4 +34,10 @@ public class AlertsController : ControllerBase
     {
         return Ok(await _service.CountAlertsPerCommandByStatus());
     }
+
+    [HttpGet("get-hotest-command")]
+    public async Task<ActionResult<HotestCommand>> GetHotestCommand()
+    {
+        return Ok(await _service.GetHotestCommand());
+    }
 }

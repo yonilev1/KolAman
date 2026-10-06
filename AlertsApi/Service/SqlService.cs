@@ -95,4 +95,95 @@ public class SqlService : ISqlService
         };
     }
 
+    public async Task<HotestCommand> GetHotestCommand()
+    {
+        var northCritical = _context.NorthAlerts.Count(c => c.Priority == "CRITICAL");
+        var northHigh = _context.NorthAlerts.Count(c => c.Priority == "HIGH");
+        var northAmount = _context.NorthAlerts.Count();
+
+        var southCritical = _context.NorthAlerts.Count(c => c.Priority == "CRITICAL");
+        var southHigh = _context.NorthAlerts.Count(c => c.Priority == "HIGH");
+        var southAmount = _context.NorthAlerts.Count();
+
+        var centerCritical = _context.NorthAlerts.Count(c => c.Priority == "CRITICAL");
+        var centerHigh = _context.NorthAlerts.Count(c => c.Priority == "HIGH");
+        var centerAmount = _context.NorthAlerts.Count();
+
+        var overCritical = _context.NorthAlerts.Count(c => c.Priority == "CRITICAL");
+        var overHigh = _context.NorthAlerts.Count(c => c.Priority == "HIGH");
+        var overAmount = _context.NorthAlerts.Count();
+
+        int north = 0;
+        int south = 0;
+        int center = 0;
+        int over = 0;
+
+        if (northCritical > southCritical && northCritical > centerCritical && northCritical > overCritical)
+            north++;
+        if (northHigh > southHigh && northHigh > centerHigh && northHigh > overHigh)
+            north++;
+        if (northAmount > southAmount && northAmount > centerAmount && northAmount > overAmount)
+            north++;
+
+        if (southCritical > northCritical && southCritical > centerCritical && southCritical > overCritical)
+            south++;
+        if (southHigh > northHigh && southHigh > centerHigh && southHigh > overHigh)
+            south++;
+        if (southAmount > northAmount && southAmount > northAmount && southAmount > overAmount)
+            south++;
+
+        if (centerCritical > southCritical && centerCritical > northCritical && centerCritical > overCritical)
+            center++;
+        if (centerHigh > southHigh && centerHigh > northHigh && centerHigh > overHigh)
+            center++;
+        if (centerAmount > southAmount && centerAmount > northAmount && centerAmount > overAmount)
+            center++;
+
+
+        if (northCritical > southCritical && northCritical > centerCritical && northCritical > overCritical)
+            north++;
+        if (northHigh > southHigh && northHigh > centerHigh && northHigh > overHigh)
+            north++;
+        if (northAmount > southAmount && northAmount > centerAmount && northAmount > centerAmount)
+            north++;
+
+        if(north > south && north > center && north > over)
+        {
+            return new HotestCommand
+            {
+                Command = "North",
+                Critial = northCritical,
+                High = northHigh,
+                Amount = northAmount
+            };
+        }
+        else if(south > north && south > center && south > over)
+        {
+            return new HotestCommand
+            {
+                Command = "South",
+                Critial = southCritical,
+                High = southHigh,
+                Amount = southAmount
+            };
+        }
+        else if (center > north && center > south && center > over)
+        {
+            return new HotestCommand
+            {
+                Command = "Center",
+                Critial = centerCritical,
+                High = centerHigh,
+                Amount = centerAmount
+            };
+        }
+        return new HotestCommand
+        {
+            Command = "Overseas",
+            Critial = overCritical,
+            High = overHigh,
+            Amount = overAmount
+        };
+    }
 }
+
